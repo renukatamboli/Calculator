@@ -16,7 +16,7 @@ public class Calculator {
     }
 
     private static List<Integer> getNumbers(String numberString) {
-        String[] tokens = numberString.split(",");
+        String[] tokens = numberString.split("[,\n]");
         List<Integer> numbers = Arrays.stream(tokens).map(token -> getInt(token)).collect(Collectors.toList());
         return numbers;
     }
