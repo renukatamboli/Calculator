@@ -18,4 +18,9 @@ public class CalculatorTest {
     public void shouldReturnSumForTwoCommaSeparatedNumberString(){
         assertEquals(3,Calculator.add("1,2"));
     }
+
+    @Test
+    public void shouldReturnSumForMultipleCommaSeparatedNumberString(){
+        assertEquals(6,Calculator.add("1,2,3"));
+    }
 }
