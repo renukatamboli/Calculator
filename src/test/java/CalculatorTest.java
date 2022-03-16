@@ -8,4 +8,9 @@ public class CalculatorTest {
     public void shouldReturnZeroForEmptyString(){
         assertEquals(0, Calculator.add(""));
     }
+
+    @Test
+    public void shouldReturnNumberForSingleNumberString(){
+        assertEquals(1,Calculator.add("1"));
+    }
 }
