@@ -23,4 +23,9 @@ public class CalculatorTest {
     public void shouldReturnSumForMultipleCommaSeparatedNumberString(){
         assertEquals(6,Calculator.add("1,2,3"));
     }
+
+    @Test
+    public void shouldAcceptNewLineAsDelimiter(){
+        assertEquals(6,Calculator.add("1\n2,3"));
+    }
 }
