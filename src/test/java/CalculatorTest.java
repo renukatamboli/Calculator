@@ -13,4 +13,9 @@ public class CalculatorTest {
     public void shouldReturnNumberForSingleNumberString(){
         assertEquals(1,Calculator.add("1"));
     }
+
+    @Test
+    public void shouldReturnSumForCommaSeparatedNumberString(){
+        assertEquals(3,Calculator.add("1,2"));
+    }
 }
