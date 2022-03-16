@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CalculatorTest {
 
@@ -32,5 +33,11 @@ public class CalculatorTest {
     @Test
     public void shouldAcceptChangeInDelimiterAtBeginningOfString(){
         assertEquals(3,Calculator.add("//;\n1;2"));
+    }
+
+    @Test
+    public void shouldThrowExceptionIfNegativeNumbersPresentInString(){
+        Throwable exception = assertThrows(Exception.class, () -> Calculator.add("-1,-2"));
+        assertEquals("negatives not allowed: -1,-2",exception.getMessage());
     }
 }
