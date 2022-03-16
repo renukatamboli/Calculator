@@ -15,7 +15,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void shouldReturnSumForCommaSeparatedNumberString(){
+    public void shouldReturnSumForTwoCommaSeparatedNumberString(){
         assertEquals(3,Calculator.add("1,2"));
     }
 }
