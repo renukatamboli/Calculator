@@ -1,3 +1,7 @@
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class Calculator {
     public static int add(String numberString){
         if(numberString.isEmpty()) {
@@ -5,8 +9,9 @@ public class Calculator {
         }
         else{
             if(numberString.contains(",")){
-                String[] numbers = numberString.split(",");
-                return getInt(numbers[0]) + getInt(numbers[1]);
+                String[] tokens = numberString.split(",");
+                List<Integer> numbers = Arrays.stream(tokens).map(token -> getInt(token)).collect(Collectors.toList());
+                return numbers.stream().reduce(0,(num1,num2)-> num1+num2);
             }
             return getInt(numberString);
         }
