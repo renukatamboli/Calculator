@@ -8,11 +8,15 @@ public class Calculator {
             return 0;
         }
         List<Integer> numbers = getNumbers(numberString);
+        CheckForNegativeNumbers(numbers);
+        return getSum(numbers);
+    }
+
+    private static void CheckForNegativeNumbers(List<Integer> numbers) throws Exception {
         List<Integer> negativeNumbers = numbers.stream().filter(number -> number<0).toList();
         if(negativeNumbers.size()>0){
             throw new Exception("negatives not allowed: " + negativeNumbers.stream().map(String::valueOf).collect(Collectors.joining(",")));
         }
-        return getSum(numbers);
     }
 
     private static Integer getSum(List<Integer> numbers) {
