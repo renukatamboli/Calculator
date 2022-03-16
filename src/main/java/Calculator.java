@@ -3,11 +3,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Calculator {
-    public static int add(String numberString){
+    public static int add(String numberString) throws Exception {
         if (numberString.isEmpty()) {
             return 0;
         }
         List<Integer> numbers = getNumbers(numberString);
+        List<Integer> negativeNumbers = numbers.stream().filter(number -> number<0).toList();
+        if(negativeNumbers.size()>0){
+            throw new Exception("negatives not allowed: " + negativeNumbers.stream().map(String::valueOf).collect(Collectors.joining(",")));
+        }
         return getSum(numbers);
     }
 
