@@ -16,7 +16,14 @@ public class Calculator {
     }
 
     private static List<Integer> getNumbers(String numberString) {
-        String[] tokens = numberString.split("[,\n]");
+        String[] tokens;
+        if(numberString.startsWith("//") && numberString.substring(0,4).matches("//(.)\n")){
+            String delimiter = String.valueOf(numberString.charAt(2));
+            tokens = numberString.substring(4).split(delimiter);
+        }
+        else {
+            tokens = numberString.split("[,\n]");
+        }
         List<Integer> numbers = Arrays.stream(tokens).map(token -> getInt(token)).collect(Collectors.toList());
         return numbers;
     }
